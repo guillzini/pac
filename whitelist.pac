@@ -1,0 +1,46 @@
+function FindProxyForURL(url, host) {
+    // Existing whitelisted domains
+    if (dnsDomainIs(host, ".magister.nl") || host == "magister.nl") {
+        return "DIRECT";
+    }
+    if (dnsDomainIs(host, ".magister.net") || host == "magister.net") {
+        return "DIRECT";
+    }
+    
+    // Newly added whitelisted domains
+    if (dnsDomainIs(host, ".windows.net") || host == "windows.net") {
+        return "DIRECT";
+    }
+    if (dnsDomainIs(host, ".kennisnet.nl") || host == "kennisnet.nl") {
+        return "DIRECT";
+    }
+    if (dnsDomainIs(host, ".malmberg.nl") || host == "malmberg.nl") {
+        return "DIRECT";
+    }
+    if (dnsDomainIs(host, ".publitas.com") || host == "publitas.com") {
+        return "DIRECT";
+    }
+
+    // Wildcard for all subdomains of the added domains
+    if (shExpMatch(host, "*.windows.net") || shExpMatch(host, "windows.net")) {
+        return "DIRECT";
+    }
+    if (shExpMatch(host, "*.magister.nl") || shExpMatch(host, "magister.nl")) {
+        return "DIRECT";
+    }
+    if (shExpMatch(host, "*.magister.net") || shExpMatch(host, "magister.net")) {
+        return "DIRECT";
+    }
+    if (shExpMatch(host, "*.kennisnet.nl") || shExpMatch(host, "kennisnet.nl")) {
+        return "DIRECT";
+    }
+    if (shExpMatch(host, "*.malmberg.nl") || shExpMatch(host, "malmberg.nl")) {
+        return "DIRECT";
+    }
+    if (shExpMatch(host, "*.publitas.com") || shExpMatch(host, "publitas.com")) {
+        return "DIRECT";
+    }
+    
+    // Default failure proxy for all other domains
+    return "PROXY 0.0.0.0:8080";
+}
