@@ -40,7 +40,20 @@ function FindProxyForURL(url, host) {
     if (shExpMatch(host, "*.publitas.com") || shExpMatch(host, "publitas.com")) {
         return "DIRECT";
     }
-    
+
+    // MS Office and OneDrive domains
+
+if (shExpMatch(host, "*.office.com") ||
+        shExpMatch(host, "*.office365.com") ||
+        shExpMatch(host, "*.live.com") ||
+        shExpMatch(host, "*.microsoft.com") ||
+        shExpMatch(host, "*.onedrive.com") ||
+        shExpMatch(host, "*.sharepoint.com") ||
+        shExpMatch(host, "*.msocdn.com") ||
+        shExpMatch(host, "*.microsoftonline.com")) {
+        return "DIRECT";
+    }
+
     // Default failure proxy for all other domains
     return "PROXY 0.0.0.0:8080";
 }
