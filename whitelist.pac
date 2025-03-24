@@ -55,5 +55,5 @@ if (shExpMatch(host, "*.office.com") ||
     }
 
     // Default failure proxy for all other domains
-    return "PROXY 127.0.0.1:8080";
+    return "PROXY 0.0.0.0:8080";
 }
