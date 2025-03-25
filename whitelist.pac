@@ -43,7 +43,7 @@ function FindProxyForURL(url, host) {
 
     // MS Office and OneDrive domains
 
-if (shExpMatch(host, "*.office.com") ||
+    if (shExpMatch(host, "*.office.com") ||
         shExpMatch(host, "*.office365.com") ||
         shExpMatch(host, "*.live.com") ||
         shExpMatch(host, "*.microsoft.com") ||
@@ -52,6 +52,24 @@ if (shExpMatch(host, "*.office.com") ||
         shExpMatch(host, "*.msocdn.com") ||
         shExpMatch(host, "*.microsoftonline.com")) {
         return "DIRECT";
+    }
+
+    // Noordhoff and all subdomains
+
+    if (dnsDomainIs(host, ".noordhoff.nl") || host == "noordhoff.nl") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.noordhoff.nl") || shExpMatch(host, "noordhoff.nl")) {
+    return "DIRECT";
+    }
+
+    // ThiemeMeulenhoff and all subdomains
+
+    if (dnsDomainIs(host, ".thiememeulenhoff.nl") || host == "thiememeulenhoff.nl") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.thiememeulenhoff.nl") || shExpMatch(host, "thiememeulenhoff.nl")) {
+    return "DIRECT";
     }
 
     // Default failure proxy for all other domains
