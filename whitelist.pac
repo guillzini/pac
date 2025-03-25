@@ -80,6 +80,14 @@ function FindProxyForURL(url, host) {
     return "DIRECT";
     }
 
+   // Toegang and all subdomains
+    if (dnsDomainIs(host, ".toegang.org") || host == "toegang.org") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.toegang.org") || shExpMatch(host, "toegang.org")) {
+    return "DIRECT";
+    }
+
     // Default failure proxy for all other domains
     return "PROXY 0.0.0.0:8080";
 }
