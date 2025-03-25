@@ -72,6 +72,14 @@ function FindProxyForURL(url, host) {
     return "DIRECT";
     }
 
+    // Ecservices and all subdomains
+    if (dnsDomainIs(host, ".ecservices.nu") || host == "ecservices.nu") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.ecservices.nu") || shExpMatch(host, "ecservices.nu")) {
+    return "DIRECT";
+    }
+
     // Default failure proxy for all other domains
     return "PROXY 0.0.0.0:8080";
 }
