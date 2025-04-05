@@ -43,15 +43,60 @@ function FindProxyForURL(url, host) {
 
     // MS Office and OneDrive domains
 
-    if (shExpMatch(host, "*.office.com") ||
-        shExpMatch(host, "*.office365.com") ||
-        shExpMatch(host, "*.live.com") ||
-        shExpMatch(host, "*.microsoft.com") ||
-        shExpMatch(host, "*.onedrive.com") ||
-        shExpMatch(host, "*.sharepoint.com") ||
-        shExpMatch(host, "*.msocdn.com") ||
-        shExpMatch(host, "*.microsoftonline.com")) {
-        return "DIRECT";
+    if (dnsDomainIs(host, "office.com") || host == "office.com") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.office.com") || shExpMatch(host, "office.com")) {
+    return "DIRECT";
+    }
+
+    if (dnsDomainIs(host, "office365.com") || host == "office365.com") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.office365.com") || shExpMatch(host, "office365.com")) {
+    return "DIRECT";
+    }
+
+    if (dnsDomainIs(host, "live.com") || host == "live.com") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.live.com") || shExpMatch(host, "live.com")) {
+    return "DIRECT";
+    }
+
+    if (dnsDomainIs(host, "microsoft.com") || host == "microsoft.com") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.microsoft.com") || shExpMatch(host, "microsoft.com")) {
+    return "DIRECT";
+    }
+
+    if (dnsDomainIs(host, "onedrive.com") || host == "onedrive.com") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.onedrive.com") || shExpMatch(host, "onedrive.com")) {
+    return "DIRECT";
+    }
+
+   if (dnsDomainIs(host, "sharepoint.com") || host == "sharepoint.com") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.sharepoint.com") || shExpMatch(host, "sharepoint.com")) {
+    return "DIRECT";
+    }
+
+   if (dnsDomainIs(host, "msocdn.com") || host == "msocdn.com") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.msocdn.com") || shExpMatch(host, "msocdn.com")) {
+    return "DIRECT";
+    }
+
+  if (dnsDomainIs(host, "microsoftonline.com") || host == "microsoftonline.com") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.microsoftonline.com") || shExpMatch(host, "microsoftonline.com")) {
+    return "DIRECT";
     }
 
     // Noordhoff and all subdomains
