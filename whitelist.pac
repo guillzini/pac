@@ -99,6 +99,13 @@ function FindProxyForURL(url, host) {
     return "DIRECT";
     }
 
+  if (dnsDomainIs(host, "office.net") || host == "office.net") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.office.net") || shExpMatch(host, "office.net")) {
+    return "DIRECT";
+    }
+
     // Noordhoff and all subdomains
 
     if (dnsDomainIs(host, ".noordhoff.nl") || host == "noordhoff.nl") {
