@@ -163,6 +163,27 @@ if (shExpMatch(host, "docs.google.com")) {
     return "DIRECT";
     }
 
+    if (dnsDomainIs(host, ".numo.nl") || host == "numo.nl") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.numo.nl") || shExpMatch(host, "numo.nl")) {
+    return "DIRECT";
+    }
+
+    if (dnsDomainIs(host, ".kahoot.it") || host == "kahoot.it") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.kahoot.it") || shExpMatch(host, "kahoot.it")) {
+    return "DIRECT";
+    }
+
+   if (dnsDomainIs(host, ".typekit.net") || host == "typekit.net") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.typekit.net") || shExpMatch(host, "typekit.net")) {
+    return "DIRECT";
+    }
+
 
     // Default failure proxy for all other domains
     return "PROXY 0.0.0.0:8080";
