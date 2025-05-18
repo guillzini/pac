@@ -184,6 +184,13 @@ if (shExpMatch(host, "docs.google.com")) {
     return "DIRECT";
     }
 
+   if (dnsDomainIs(host, ".cloudfront.net") || host == "cloudfront.net") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.cloudfront.net") || shExpMatch(host, "cloudfront.net")) {
+    return "DIRECT";
+    }
+
 
     // Default failure proxy for all other domains
     return "PROXY 0.0.0.0:8080";
