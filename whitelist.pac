@@ -148,6 +148,21 @@ if (shExpMatch(host, "docs.google.com")) {
     return "DIRECT";
 }
 
+// Last semester
+    if (dnsDomainIs(host, ".digit-vo.nl") || host == "digit-vo.nl") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.digit-vo.nl") || shExpMatch(host, "digit-vo.nl")) {
+    return "DIRECT";
+    }
+
+    if (dnsDomainIs(host, ".msftauth.net") || host == "msftauth.net") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.msftauth.net") || shExpMatch(host, "msftauth.net")) {
+    return "DIRECT";
+    }
+
 
     // Default failure proxy for all other domains
     return "PROXY 0.0.0.0:8080";
