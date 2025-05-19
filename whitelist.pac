@@ -191,6 +191,13 @@ if (shExpMatch(host, "docs.google.com")) {
     return "DIRECT";
     }
 
+   if (dnsDomainIs(host, ".diatoetsen.nl") || host == "diatoetsen.nl") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.diatoetsen.nl") || shExpMatch(host, "diatoetsen.nl")) {
+    return "DIRECT";
+    }
+
 
     // Default failure proxy for all other domains
     return "PROXY 0.0.0.0:8080";
