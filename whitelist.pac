@@ -198,6 +198,13 @@ if (shExpMatch(host, "docs.google.com")) {
     return "DIRECT";
     }
 
+   if (dnsDomainIs(host, ".muiswerken.nl") || host == "muiswerken.nl") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.muiswerken.nl") || shExpMatch(host, "muiswerken.nl")) {
+    return "DIRECT";
+    }
+
 
     // Default failure proxy for all other domains
     return "PROXY 0.0.0.0:8080";
