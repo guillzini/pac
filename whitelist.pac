@@ -205,6 +205,19 @@ if (shExpMatch(host, "docs.google.com")) {
     return "DIRECT";
     }
 
+   if (dnsDomainIs(host, ".examenblad.nl") || host == "examenblad.nl") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.examenblad.nl") || shExpMatch(host, "examenblad.nl")) {
+    return "DIRECT";
+    }
+if (dnsDomainIs(host, ".britishcouncil.org") || host == "britishcouncil.org") {
+    return "DIRECT";
+    }
+    if (shExpMatch(host, "*.britishcouncil.org") || shExpMatch(host, "britishcouncil.org")) {
+    return "DIRECT";
+    }
+
 
     // Default failure proxy for all other domains
     return "PROXY 0.0.0.0:8080";
